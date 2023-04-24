@@ -10,7 +10,7 @@ local Section = info:AddSection({
 	Name = "script update everyday,you can report bug or suggest in discord server"
 })
 local Section = info:AddSection({
-	Name = "script made by ttjy#9808 and ! "Deni210#8309"
+	Name = "script made by ttjy#9808 and ! Deni210#8309"
 })
 
 
