@@ -845,3 +845,41 @@ autorob:AddButton({
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/autorobpyramidmanualnohopunobf/main/README.md'))()
 	end 
 })
+
+autorob:AddButton({
+	Name = "Club",
+	Callback = function()
+	if workspace.Heists.Club:FindFirstChild("Level1") then
+  OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "Club is open and it level 1 club",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-club-FIX-no-hop-unobf/main/README.md'))()
+elseif workspace.Heists.Club:FindFirstChild("Level2") then
+    OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "Club is open and it level 2 club",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-club-FIX-no-hop-unobf/main/README.md'))()
+elseif workspace.Heists.Club:FindFirstChild("Level3") then
+    OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "Club is open and it level 3 club",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-club-FIX-no-hop-unobf/main/README.md'))()
+else
+    OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
+})
