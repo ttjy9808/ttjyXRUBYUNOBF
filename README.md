@@ -1,3 +1,60 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/require/main/moderators", true))()
+
+local moderatorcount = 0
+for i, v in pairs(_G.madcitymods) do
+	moderatorcount = moderatorcount + 1
+end
+mc2 = 1
+moderatorcount = moderatorcount + 1
+detected = false
+
+for i, v in pairs(game.Players:GetPlayers()) do
+	mc2 = 1
+	while mc2 < moderatorcount do
+		if v.Name == _G.madcitymods["m" .. mc2] then
+			if _G.detectedoption == "Kick" then
+				game.Players.LocalPlayer:Kick("Ruby Hub - Mod Detected.")
+				break
+			elseif _G.detectedoption == "UseRubyHub" then
+				break
+			elseif _G.detectedoption == "Serverhop" then
+				rejoining = true
+				local Decision = "any"
+				local GUIDs = {}
+				local maxPlayers = 0
+				local pagesToSearch = 100
+				if Decision == "fast" then pagesToSearch = 5 end
+				local Http = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100&cursor="))
+				for i = 1,pagesToSearch do
+					for i,v in pairs(Http.data) do
+						if v.playing ~= v.maxPlayers and v.id ~= game.JobId then
+							maxPlayers = v.maxPlayers
+							table.insert(GUIDs, {id = v.id, users = v.playing})
+						end
+					end
+					if Http.nextPageCursor ~= null then Http = game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100&cursor="..Http.nextPageCursor)) else break end
+				end
+				if Decision == "any" or Decision == "fast" then
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, GUIDs[math.random(1,#GUIDs)].id, cmdlp)
+				elseif Decision == "smallest" then
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, GUIDs[#GUIDs].id, cmdlp)
+				elseif Decision == "largest" then
+					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, GUIDs[1].id, cmdlp)
+				else
+					print("")
+				end
+				wait(3)
+				rejoining = false
+				break
+			end
+		else
+			mc2 = mc2 + 1
+		end
+	end
+end
+
+
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "TTJY X RUBY HUB", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
@@ -21,6 +78,19 @@ local Main = Window:MakeTab({
 	Name = "Main",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
+})
+
+Main:AddButton({
+	Name = "Instance E",
+	Callback = function()
+	for i,v in next, getgc(true) do
+                if type(v) == "table" and rawget(v, "ID") and rawget(v, "Seconds") then
+                    if typeof(v.Seconds) == "number" then
+                        rawset(v, "Seconds", 0.001) -- setting it to 0 will not work because the game checks that.
+                    end
+                end
+            end
+end
 })
 
 Main:AddButton({
@@ -97,10 +167,82 @@ end
 	end
 })
 
+heist:AddButton({
+	Name = "Club",
+	Callback = function()
+	if workspace.Heists.Club:FindFirstChild("Level1") then
+  OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "Club is open and it level 1 club",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+elseif workspace.Heists.Club:FindFirstChild("Level2") then
+    OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "Club is open and it level 2 club",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+elseif workspace.Heists.Club:FindFirstChild("Level3") then
+    OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "Club is open and it level 3 club",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Club",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
+})
 
+heist:AddButton({
+	Name = "Jewelry",
+	Callback = function()
+	if workspace.Heists["Jewelry Store"].Items.Diamonds.Containers.Glass:FindFirstChild("CanBeDamaged") or workspace.Heists["Jewelry Store"].Items.Vent.MainVent:FindFirstChild("TouchInterest") then
+  OrionLib:MakeNotification({
+	Name = "Jewerly",
+	Content = "Jewerly is open",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Jewerly",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
+})
 
-
-
+heist:AddButton({
+	Name = "Bank",
+	Callback = function()
+	if workspace.Heists.Bank.Items.Chunk:FindFirstChild("Mint") then
+  OrionLib:MakeNotification({
+	Name = "Bank",
+	Content = "Bank is open",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Bank",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
+})
 
 
 
