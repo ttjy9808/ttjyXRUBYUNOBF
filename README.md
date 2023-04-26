@@ -839,11 +839,63 @@ autorob:AddButton({
 	end 
 })
 
+
 autorob:AddButton({
-	Name = "pyramid level1",
+	Name = "Pyramid",
 	Callback = function()
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/autorobpyramidmanualnohopunobf/main/README.md'))()
-	end 
+	if workspace.Heists.Pyramid:FindFirstChild("Level1") then
+  OrionLib:MakeNotification({
+	Name = "Pyramid",
+	Content = "Pyramid is open and it level 1 pyramid",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/autorobpyramidmanualnohopunobf/main/README.md'))()
+elseif workspace.Heists.Pyramid:FindFirstChild("Level2") then
+    OrionLib:MakeNotification({
+	Name = "Pyramid",
+	Content = "Pyramid is open and it level 2 pyramid,we dont have auto rob pyramid level 2 right now",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Pyramid",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
+})
+
+autorob:AddButton({
+	Name = "Pyramid (instance E)",
+	Callback = function()
+	if workspace.Heists.Pyramid:FindFirstChild("Level1") then
+  OrionLib:MakeNotification({
+	Name = "Pyramid",
+	Content = "Pyramid is open and it level 1 pyramid",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-pyramid-with-instance-E-no-hop-but-obf/main/README.md'))()
+elseif workspace.Heists.Pyramid:FindFirstChild("Level2") then
+    OrionLib:MakeNotification({
+	Name = "Pyramid",
+	Content = "Pyramid is open and it level 2 pyramid,we dont have auto rob pyramid level 2 right now",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Pyramid",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
 })
 
 autorob:AddButton({
@@ -882,4 +934,177 @@ else
 })
 end
 	end
+})
+
+
+
+
+
+
+
+
+
+
+
+local Keybind = Window:MakeTab({
+	Name = "Keybind",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Keybind:AddBind({
+	Name = "Instance E",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		for i,v in next, getgc(true) do
+                if type(v) == "table" and rawget(v, "ID") and rawget(v, "Seconds") then
+                    if typeof(v.Seconds) == "number" then
+                        rawset(v, "Seconds", 0.001)
+                    end
+                end
+            end
+	end    
+})
+
+Keybind:AddBind({
+	Name = "Remove all laser",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		for i, v in pairs(game.Workspace:GetDescendants()) do
+                if v.Name == "MovingLasers" or v.Name == "Laser" or v.Name == "GreenLaser" or v.Name == "GreenLasers" or v.Name == "Lasers" or v.Name == "VaultLasers" or v.Name == "NightLaser" or v.Name == "LaserDoor" or v.Name == "Lava" or v.Name == "Spotlight" or v.Name == "Flamethrowers" or v.Name == "Saws" or v.Name == "SpikeTraps" or v.Name == "Balls" or v.Name == "PressurePlates" or v.Name == "LaserWalls" or v.Name == "WallBeam" or v.Name == "Detectors" or v.Name == "Turrets" then
+                    v:Destroy()
+                end
+            end
+	end    
+})
+
+Keybind:AddBind({
+	Name = "tp to criminal base",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-criminal-base/main/README.md'))()
+	end    
+})
+
+Keybind:AddBind({
+	Name = "tp to Prison",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-prison/main/README.md'))()
+	end 
+})
+
+
+Keybind:AddBind({
+	Name = "tp to Jewelry",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/teleport-to-jew/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Bank",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-bank/main/README.md'))()
+	end 
+}) 
+
+Keybind:AddBind({
+	Name = "Casino",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-casino/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Club",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-club/main/README.md'))()
+	end 
+})
+
+
+
+
+Keybind:AddBind({
+	Name = "tp to Pyramid",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-pyramid/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Gun store",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-tp-gun-store/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Airport",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-airport/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Apple Store",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/apple-store/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Small rob1",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob1/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Small rob2",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob2/main/README.md'))()
+	end 
+})
+
+Keybind:AddBind({
+	Name = "tp to Small rob3",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob3/main/README.md'))()
+	end 
+})
+Keybind:AddBind({
+	Name = "tp to Small rob4",
+	Default = "gay",
+	Hold = false,
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob4/main/README.md'))()
+	end 
 })
