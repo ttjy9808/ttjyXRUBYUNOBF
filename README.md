@@ -860,10 +860,11 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/autorobpyram
 elseif workspace.Heists.Pyramid:FindFirstChild("Level2") then
     OrionLib:MakeNotification({
 	Name = "Pyramid",
-	Content = "Pyramid is open and it level 2 pyramid,we dont have auto rob pyramid level 2 right now",
+	Content = "Pyramid is open and it level 2 pyramid",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-pyramid-level-2/main/README.md'))()
 else
     OrionLib:MakeNotification({
 	Name = "Pyramid",
@@ -889,7 +890,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-pyr
 elseif workspace.Heists.Pyramid:FindFirstChild("Level2") then
     OrionLib:MakeNotification({
 	Name = "Pyramid",
-	Content = "Pyramid is open and it level 2 pyramid,we dont have auto rob pyramid level 2 right now",
+	Content = "Pyramid is open and it level 2 pyramid,not yet done",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
