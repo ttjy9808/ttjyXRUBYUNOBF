@@ -60,7 +60,7 @@ local Window = OrionLib:MakeWindow({Name = "TTJY X RUBY HUB", HidePremium = fals
 
 local info = Window:MakeTab({
 	Name = "info/credit",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://13257297610",
 	PremiumOnly = false
 })
 local Section = info:AddSection({
@@ -839,6 +839,12 @@ autorob:AddButton({
 	end 
 })
 
+autorob:AddButton({
+	Name = "small rob (instance E)",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/small-auto-rob-no-hop-unobf-but-instance-E/main/README.md'))()
+	end 
+})
 
 autorob:AddButton({
 	Name = "Pyramid",
