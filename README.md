@@ -890,10 +890,11 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-pyr
 elseif workspace.Heists.Pyramid:FindFirstChild("Level2") then
     OrionLib:MakeNotification({
 	Name = "Pyramid",
-	Content = "Pyramid is open and it level 2 pyramid,not yet done",
+	Content = "Pyramid is open and it level 2 pyramid",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/auto-rob-pyramid-lv2-unobf-instance-E/main/README.md'))()
 else
     OrionLib:MakeNotification({
 	Name = "Pyramid",
