@@ -1209,58 +1209,35 @@ Keybind:AddBind({
 	end 
 })
 
-while true do
-if game:GetService("RbxAnalyticsService"):GetClientId() == "8B64D8DA-1C94-490B-B174-9FA99D489A3E" then
-local player = game.Players.LocalPlayer
-local billboard = Instance.new("BillboardGui")
-billboard.Name = "Username"
-billboard.Size = UDim2.new(2, 0, 2, 0)
-billboard.StudsOffset = Vector3.new(0, 3, 0)
-billboard.AlwaysOnTop = true
-billboard.LightInfluence = 0
-billboard.Parent = player.Character.Head
-local textLabel = Instance.new("TextLabel")
-textLabel.Name = "Name"
-textLabel.Text = "TTJY"
-textLabel.TextColor3 = Color3.new(1, 1, 1)
-textLabel.TextSize = 30
-textLabel.Font = Enum.Font.SourceSansBold
-textLabel.BackgroundTransparency = 1
-textLabel.Size = UDim2.new(1, 0, 1, 0)
-textLabel.TextColor3 = Color3.new(1, 0, 0)
-textLabel.Parent = billboard
-task.wait(50)
-for _,v in pairs(game.Workspace:GetDescendants()) do
-if v.Name == "Username" then
-v:Destroy()
+local function createBillboardGui(player)
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "Username"
+    billboard.Size = UDim2.new(2, 0, 2, 0)
+    billboard.StudsOffset = Vector3.new(0, 3, 0)
+    billboard.AlwaysOnTop = true
+    billboard.LightInfluence = 0
+    billboard.Parent = player.Character.Head
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Name = "Name"
+    textLabel.Text = "TTJY X RUBY HUB USER"
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.TextSize = 30
+    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.BackgroundTransparency = 1
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.TextColor3 = Color3.new(1, 0, 0)
+    textLabel.Parent = billboard
+    return billboard
 end
+
+local function onPlayerAdded(player)
+    if player.Name == "LOserhaha111hjvhbhbh" or player.Name == "moonsim" player.Name == "HellWagner" player.Name == "pinhchill52" then
+        createBillboardGui(player)
+    end
 end
-elseif game:GetService("RbxAnalyticsService"):GetClientId() == "D8928574-3633-45B8-8CC2-A20495C20753" or "F75A45C0-A881-4A76-A24C-BC598F2B2B43" or "16420F32-FB80-4167-8EC5-8F77A9E20129" then
-local player = game.Players.LocalPlayer
-local billboard = Instance.new("BillboardGui")
-billboard.Name = "Username"
-billboard.Size = UDim2.new(2, 0, 2, 0)
-billboard.StudsOffset = Vector3.new(0, 3, 0)
-billboard.AlwaysOnTop = true
-billboard.LightInfluence = 0
-billboard.Parent = player.Character.Head
-local textLabel = Instance.new("TextLabel")
-textLabel.Name = "Name"
-textLabel.Text = "TTJY X RUBY HUB USER"
-textLabel.TextColor3 = Color3.new(1, 1, 1)
-textLabel.TextSize = 30
-textLabel.Font = Enum.Font.SourceSansBold
-textLabel.BackgroundTransparency = 1
-textLabel.Size = UDim2.new(1, 0, 1, 0)
-textLabel.TextColor3 = Color3.new(1, 0, 0)
-textLabel.Parent = billboard
-task.wait(50)
-for _,v in pairs(game.Workspace:GetDescendants()) do
-if v.Name == "Username" then
-v:Destroy()
+
+for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
+    onPlayerAdded(player)
 end
-end
-else
-task.wait()
-end
-end
+
+game:GetService("Players").PlayerAdded:Connect(onPlayerAdded)
