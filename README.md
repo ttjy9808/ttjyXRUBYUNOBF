@@ -1230,7 +1230,7 @@ textLabel.Size = UDim2.new(1, 0, 1, 0)
 textLabel.TextColor3 = Color3.new(1, 0, 0)
 textLabel.Parent = billboard
 task.wait()
-else
+elseif if game:GetService("RbxAnalyticsService"):GetClientId() == "D8928574-3633-45B8-8CC2-A20495C20753" or "F75A45C0-A881-4A76-A24C-BC598F2B2B43" then
 local player = game.Players.LocalPlayer
 local billboard = Instance.new("BillboardGui")
 billboard.Name = "Username"
@@ -1253,6 +1253,7 @@ task.wait(50)
 for _,v in pairs(game.Workspace:GetDescendants()) do
 if v.Name == "Username" then
 v:Destroy()
+end
 end
 end
 end
