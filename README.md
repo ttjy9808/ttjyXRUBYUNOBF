@@ -1208,7 +1208,7 @@ Keybind:AddBind({
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob4/main/README.md'))()
 	end 
 })
-
+while true do
 local function createBillboardGui(player)
     local billboard = Instance.new("BillboardGui")
     billboard.Name = "Username"
@@ -1245,3 +1245,5 @@ for _, player in ipairs(game:GetService("Players"):GetPlayers()) do
 end
 
 game:GetService("Players").PlayerAdded:Connect(onPlayerAdded)
+task.wait(50)
+end
