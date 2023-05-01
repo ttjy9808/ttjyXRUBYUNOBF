@@ -1221,7 +1221,7 @@ local function createBillboardGui(player)
     textLabel.Name = "Name"
     textLabel.Text = "TTJY X RUBY HUB USER"
     textLabel.TextColor3 = Color3.new(1, 1, 1)
-    textLabel.TextSize = 30
+    textLabel.TextSize = 20
     textLabel.Font = Enum.Font.SourceSansBold
     textLabel.BackgroundTransparency = 1
     textLabel.Size = UDim2.new(1, 0, 1, 0)
