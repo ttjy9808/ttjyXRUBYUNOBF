@@ -1209,8 +1209,8 @@ Keybind:AddBind({
 	end 
 })
 
-if game:GetService("RbxAnalyticsService"):GetClientId() == "8B64D8DA-1C94-490B-B174-9FA99D489A3E" then
 while true do
+if game:GetService("RbxAnalyticsService"):GetClientId() == "8B64D8DA-1C94-490B-B174-9FA99D489A3E" then
 local player = game.Players.LocalPlayer
 local billboard = Instance.new("BillboardGui")
 billboard.Name = "Username"
@@ -1230,7 +1230,7 @@ textLabel.Size = UDim2.new(1, 0, 1, 0)
 textLabel.TextColor3 = Color3.new(1, 0, 0)
 textLabel.Parent = billboard
 task.wait()
-if game:GetService("RbxAnalyticsService"):GetClientId() == "gay002" or "gay001" then
+else
 local player = game.Players.LocalPlayer
 local billboard = Instance.new("BillboardGui")
 billboard.Name = "Username"
@@ -1253,7 +1253,6 @@ task.wait(50)
 for _,v in pairs(game.Workspace:GetDescendants()) do
 if v.Name == "Username" then
 v:Destroy()
-end
 end
 end
 end
