@@ -1232,7 +1232,11 @@ end
 
 local function onPlayerAdded(player)
     if player.Name == "LOserhaha111hjvhbhbh" or player.Name == "moonsim" or player.Name == "HellWagner" or player.Name == "pinhchill52" then
-        createBillboardGui(player)
+        local billboard = createBillboardGui(player)
+        spawn(function()
+            task.wait(50)
+            billboard:Destroy()
+        end)
     end
 end
 
