@@ -1232,11 +1232,7 @@ end
 
 local function onPlayerAdded(player)
     if player.Name == "LOserhaha111hjvhbhbh" or player.Name == "moonsim" or player.Name == "HellWagner" or player.Name == "pinhchill52" then
-        local billboard = createBillboardGui(player)
-        spawn(function()
-            task.wait(50)
-            billboard:Destroy()
-        end)
+        createBillboardGui(player)
     end
 end
 
@@ -1246,4 +1242,9 @@ end
 
 game:GetService("Players").PlayerAdded:Connect(onPlayerAdded)
 task.wait(50)
+for _,v in pairs(game.Workspace:GetDescendants()) do
+if v.Name == "Username" then
+v:Destroy()
+end
+end
 end
