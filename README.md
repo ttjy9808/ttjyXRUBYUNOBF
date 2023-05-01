@@ -1230,7 +1230,7 @@ textLabel.Size = UDim2.new(1, 0, 1, 0)
 textLabel.TextColor3 = Color3.new(1, 0, 0)
 textLabel.Parent = billboard
 task.wait()
-if game:GetService("RbxAnalyticsService"):GetClientId() == "8B64D8DA-1C94-490B-B174-9FA99D489A3E" or "gay001" then
+if game:GetService("RbxAnalyticsService"):GetClientId() == "gay002" or "gay001" then
 local player = game.Players.LocalPlayer
 local billboard = Instance.new("BillboardGui")
 billboard.Name = "Username"
