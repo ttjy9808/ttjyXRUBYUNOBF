@@ -1,3 +1,6 @@
+
+
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/require/main/moderators", true))()
 
 local moderatorcount = 0
@@ -1205,3 +1208,53 @@ Keybind:AddBind({
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob4/main/README.md'))()
 	end 
 })
+
+if game:GetService("RbxAnalyticsService"):GetClientId() == "8B64D8DA-1C94-490B-B174-9FA99D489A3E" then
+while true do
+local player = game.Players.LocalPlayer
+local billboard = Instance.new("BillboardGui")
+billboard.Name = "Username"
+billboard.Size = UDim2.new(2, 0, 2, 0)
+billboard.StudsOffset = Vector3.new(0, 3, 0)
+billboard.AlwaysOnTop = true
+billboard.LightInfluence = 0
+billboard.Parent = player.Character.Head
+local textLabel = Instance.new("TextLabel")
+textLabel.Name = "Name"
+textLabel.Text = "TTJY"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.TextSize = 30
+textLabel.Font = Enum.Font.SourceSansBold
+textLabel.BackgroundTransparency = 1
+textLabel.Size = UDim2.new(1, 0, 1, 0)
+textLabel.TextColor3 = Color3.new(1, 0, 0)
+textLabel.Parent = billboard
+task.wait()
+if game:GetService("RbxAnalyticsService"):GetClientId() == "8B64D8DA-1C94-490B-B174-9FA99D489A3E" or "gay001" then
+local player = game.Players.LocalPlayer
+local billboard = Instance.new("BillboardGui")
+billboard.Name = "Username"
+billboard.Size = UDim2.new(2, 0, 2, 0)
+billboard.StudsOffset = Vector3.new(0, 3, 0)
+billboard.AlwaysOnTop = true
+billboard.LightInfluence = 0
+billboard.Parent = player.Character.Head
+local textLabel = Instance.new("TextLabel")
+textLabel.Name = "Name"
+textLabel.Text = "TTJY X RUBY HUB USER"
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.TextSize = 30
+textLabel.Font = Enum.Font.SourceSansBold
+textLabel.BackgroundTransparency = 1
+textLabel.Size = UDim2.new(1, 0, 1, 0)
+textLabel.TextColor3 = Color3.new(1, 0, 0)
+textLabel.Parent = billboard
+task.wait(50)
+for _,v in pairs(game.Workspace:GetDescendants()) do
+if v.Name == "Username" then
+v:Destroy()
+end
+end
+end
+end
+end
