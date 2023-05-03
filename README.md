@@ -1231,7 +1231,7 @@ local function createBillboardGui(player)
 end
 
 local function onPlayerAdded(player)
-    if player.Name == "LOserhaha111hjvhbhbh" or player.Name == "moonsim" or player.Name == "HellWagner" or player.Name == "pinhchill52" or player.Name == "ShiriruALT" or player.Name == "yayeban_567" or player.Name == "Ript0_legendary" then
+    if player.Name == "LOserhaha111hjvhbhbh" or player.Name == "moonsim" or player.Name == "HellWagner" or player.Name == "pinhchill52" or player.Name == "ShiriruALT" or player.Name == "yayeban_567" or player.Name == "Ript0_legendary" or player.Name == "Crafter1030" then
         createBillboardGui(player)
     end
 end
