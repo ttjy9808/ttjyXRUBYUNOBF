@@ -1,6 +1,3 @@
-
-
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Deni210/require/main/moderators", true))()
 
 local moderatorcount = 0
