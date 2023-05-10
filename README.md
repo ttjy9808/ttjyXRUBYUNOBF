@@ -226,7 +226,7 @@ ESP:AddButton({
 	Name = "Phone ESP",
 	Callback = function()
       		for _,v in pairs(game.Workspace:GetDescendants()) do
-        if v.Name == "Phone" then
+        if v.Name == "Phone_600_5" then
             local a = Instance.new("BillboardGui", v)
             a.Size = UDim2.new(1, 0, 1, 0)
             a.Name = "ESP"
@@ -257,8 +257,8 @@ ESP:AddButton({
 ESP:AddButton({
 	Name = "Laptop ESP",
 	Callback = function()
-      		for _,v in pairs(game.Workspace:GetDescendants()) do
-        if v.Name == "Laptop ESP" then
+      		      		for _,v in pairs(game.Workspace:GetDescendants()) do
+        if v.Name == "Laptop_1000_6" then
             local a = Instance.new("BillboardGui", v)
             a.Size = UDim2.new(1, 0, 1, 0)
             a.Name = "ESP"
@@ -290,7 +290,7 @@ ESP:AddButton({
 	Name = "Cash Register ESP",
 	Callback = function()
       		for _,v in pairs(game.Workspace:GetDescendants()) do
-        if v.Name == "Cash_Register_600_5" then
+        if v.Name == "Cash Register_600_5" then
             local a = Instance.new("BillboardGui", v)
             a.Size = UDim2.new(1, 0, 1, 0)
             a.Name = "ESP"
