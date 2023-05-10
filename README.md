@@ -12,6 +12,12 @@ local Section = info:AddSection({
 local Section = info:AddSection({
 	Name = "script made by ttjy#9808 and ! Deni210#8309"
 })
+local Section = info:AddSection({
+	Name = "update:"
+})
+local Section = info:AddSection({
+	Name = "-Fix Auto rob pyramid level2"
+})
 
 
 
