@@ -255,7 +255,7 @@ ESP:AddButton({
 })
 
 ESP:AddButton({
-	Name = "EGG ESP",
+	Name = "Laptop ESP",
 	Callback = function()
       		for _,v in pairs(game.Workspace:GetDescendants()) do
         if v.Name == "Laptop ESP" then
