@@ -16,6 +16,9 @@ local Section = info:AddSection({
 	Name = "update:"
 })
 local Section = info:AddSection({
+	Name = "-Change from teleport to small rob 4 to tp to gun store 2"
+})
+local Section = info:AddSection({
 	Name = "-Release small auto rob serverhop with instance E"
 })
 local Section = info:AddSection({
@@ -853,6 +856,12 @@ Teleport:AddButton({
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-tp-gun-store/main/README.md'))()
 	end 
 })
+Teleport:AddButton({
+	Name = "Gun store 2",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob4/main/README.md'))()
+	end 
+})
 
 Teleport:AddButton({
 	Name = "Airport",
@@ -886,13 +895,6 @@ Teleport:AddButton({
 	Name = "Small rob3",
 	Callback = function()
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob3/main/README.md'))()
-	end 
-})
-
-Teleport:AddButton({
-	Name = "Small rob4",
-	Callback = function()
-		loadstring(game:HttpGet('https://raw.githubusercontent.com/ttjy9808/tp-to-small-rob4/main/README.md'))()
 	end 
 })
 
