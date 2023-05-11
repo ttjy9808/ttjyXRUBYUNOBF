@@ -16,11 +16,30 @@ local Section = info:AddSection({
 	Name = "update:"
 })
 local Section = info:AddSection({
+	Name = "-Release small auto rob serverhop with instance E"
+})
+local Section = info:AddSection({
+	Name = "Fix teleport to small rob 1 and 4"
+})
+local Section = info:AddSection({
+	Name = "-Remake small auto rob"
+})
+local Section = info:AddSection({
+	Name = "-Fix teleport to prison"
+})
+local Section = info:AddSection({
+	Name = "-Remake small auto rob instance E"
+})
+local Section = info:AddSection({
+	Name = "-Remake small auto rob serverhop"
+})
+local Section = info:AddSection({
 	Name = "-Added Esp phone,laptop,cash register"
 })
 local Section = info:AddSection({
 	Name = "-Fix Auto rob pyramid level2"
 })
+
 
 
 
