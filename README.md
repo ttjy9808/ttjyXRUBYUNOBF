@@ -16,6 +16,19 @@ local Section = info:AddSection({
 	Name = "update:"
 })
 local Section = info:AddSection({
+    Name = "- Big Update Part 2:\n" ..
+           "- Remake auto rob club hop\n" ..
+           "- Remake auto rob club\n" ..
+           "- Remake auto rob pyramid lv1 hop and no hop\n" ..
+           "- Remake auto rob pyramid lv1 instance E hop and no hop\n" ..
+           "- Added Ship to heist status/level check\n" ..
+           "- Added Plane to heist status/level check\n" ..
+           "- Fix bank remove laser\n" ..
+           "- Anti police\n" ..
+           "- Anti Heros\n" ..
+           "- HP CHECK"
+})
+local Section = info:AddSection({
 	Name = "-Change from teleport to small rob 4 to tp to gun store 2"
 })
 local Section = info:AddSection({
@@ -100,6 +113,227 @@ rejoining = true
             rejoining = false
 end
 })
+
+-- Define the team name to check
+local teamName = "Police"
+
+-- Variable to control loop execution
+local value = false -- Set to false to turn off the loop
+local hb -- Heartbeat connection
+
+-- Function to check if a player with the specified team is near you
+local function checkTeamProximity()
+    while value do
+        local players = game:GetService("Players"):GetPlayers()
+        local playerNearby = false
+
+        for _, player in ipairs(players) do
+            if player.Team and player.Team.Name == teamName then
+                local playerPosition = player.Character and player.Character.PrimaryPart and player.Character.PrimaryPart.Position
+
+                if playerPosition then
+                    local yourPosition = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character.PrimaryPart and game.Players.LocalPlayer.Character.PrimaryPart.Position
+                    local distance = (playerPosition - yourPosition).Magnitude
+
+                    if distance < 10 then -- Adjust the distance threshold as needed
+                        playerNearby = true
+                        break
+                    end
+                end
+            end
+        end
+
+        if playerNearby and value then
+            if not hb then
+                hb = game:GetService("RunService").Heartbeat:Connect(function()
+                    if value and playerNearby then
+                        if not success then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(46.720882415771484, 25.5849609375, -61.242427825927734)
+                            keypress(0x45) -- Replace with the appropriate function for key press
+                            task.wait(0.01)
+                            keyrelease(0x45) -- Replace with the appropriate function for key release
+                        end
+                    else
+                        success = true
+                    end
+                end)
+            end
+        elseif hb then
+            hb:Disconnect()
+            hb = nil
+        end
+
+        wait(1) -- Adjust the delay between checks as desired
+    end
+end
+
+-- Function to handle the toggle callback
+local function handleToggle(newValue)
+    value = newValue -- Update the value based on the toggle state
+
+    if value then
+        checkTeamProximity() -- Perform the proximity check if value is true
+    else
+        if hb then
+            hb:Disconnect()
+            hb = nil
+        end
+    end
+end
+
+-- Connect the toggle callback
+Main:AddToggle({
+    Name = "Anti Police",
+    Default = false,
+    Callback = handleToggle
+})
+
+-- Define the team name to check
+local heroesTeamName = "Heroes"
+
+-- Variable to control loop execution
+local heroesValue = false -- Set to false to turn off the loop
+local heroesHB -- Heartbeat connection
+
+-- Function to check if a player with the specified team is near you
+local function checkHeroesProximity()
+    while heroesValue do
+        local players = game:GetService("Players"):GetPlayers()
+        local heroesPlayerNearby = false
+
+        for _, player in ipairs(players) do
+            if player.Team and player.Team.Name == heroesTeamName then
+                local playerPosition = player.Character and player.Character.PrimaryPart and player.Character.PrimaryPart.Position
+
+                if playerPosition then
+                    local yourPosition = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character.PrimaryPart and game.Players.LocalPlayer.Character.PrimaryPart.Position
+                    local distance = (playerPosition - yourPosition).Magnitude
+
+                    if distance < 10 then -- Adjust the distance threshold as needed
+                        heroesPlayerNearby = true
+                        break
+                    end
+                end
+            end
+        end
+
+        if heroesPlayerNearby and heroesValue then
+            if not heroesHB then
+                heroesHB = game:GetService("RunService").Heartbeat:Connect(function()
+                    if heroesValue and heroesPlayerNearby then
+                        if not heroesSuccess then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(46.720882415771484, 25.5849609375, -61.242427825927734)
+                            keypress(0x45) -- Replace with the appropriate function for key press
+                            task.wait(0.01)
+                            keyrelease(0x45) -- Replace with the appropriate function for key release
+                        end
+                    else
+                        heroesSuccess = true
+                    end
+                end)
+            end
+        elseif heroesHB then
+            heroesHB:Disconnect()
+            heroesHB = nil
+        end
+
+        wait(1) -- Adjust the delay between checks as desired
+    end
+end
+
+-- Function to handle the toggle callback
+local function handleHeroesToggle(newValue)
+    heroesValue = newValue -- Update the value based on the toggle state
+
+    if heroesValue then
+        checkHeroesProximity() -- Perform the proximity check if value is true
+    else
+        if heroesHB then
+            heroesHB:Disconnect()
+            heroesHB = nil
+        end
+    end
+end
+
+-- Connect the toggle callback
+Main:AddToggle({
+    Name = "Anti Heroes",
+    Default = false,
+    Callback = handleHeroesToggle
+})
+
+-- Variable to control loop execution
+local value = false -- Set to false to turn off the loop
+local hb -- Heartbeat connection
+
+-- Constants for rapid HP decrease check
+local RAPID_HP_DECREASE_AMOUNT = 50 -- Adjust as needed
+local RAPID_HP_DECREASE_TIME_THRESHOLD = 3 -- Adjust the range as needed
+ -- Adjust as needed
+
+-- Function to check the humanoid HP and rapid HP decrease
+local function checkHP()
+    while value do
+        local humanoid = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            local hp = humanoid.Health
+            local currentTime = tick()
+
+            if hp <= 25 and humanoid.LastHealthChange and humanoid.LastHealthChange >= RAPID_HP_DECREASE_AMOUNT and (not humanoid.LastHealthChangeTime or currentTime - humanoid.LastHealthChangeTime <= RAPID_HP_DECREASE_TIME_THRESHOLD) then
+                if not hb then
+                    hb = game:GetService("RunService").Heartbeat:Connect(function()
+                        if value and humanoid.Health <= 25 and humanoid.LastHealthChange and humanoid.LastHealthChange >= RAPID_HP_DECREASE_AMOUNT and (not humanoid.LastHealthChangeTime or currentTime - humanoid.LastHealthChangeTime <= RAPID_HP_DECREASE_TIME_THRESHOLD) then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(46.720882415771484, 25.5849609375, -61.242427825927734)
+                            keypress(0x45) -- Replace with the appropriate function for key press
+                            task.wait(0.01)
+                            keyrelease(0x45) -- Replace with the appropriate function for key release
+                        end
+                    end)
+                end
+            elseif hb then
+                hb:Disconnect()
+                hb = nil
+            end
+
+            humanoid.LastHealthChange = hp - humanoid.Health
+            humanoid.LastHealthChangeTime = currentTime
+        end
+
+        wait(1) -- Adjust the delay between checks as desired
+    end
+end
+
+-- Function to handle the toggle callback
+local function handleToggle(newValue)
+    value = newValue -- Update the value based on the toggle state
+
+    if value then
+        checkHP() -- Perform the HP check if value is true
+    else
+        if hb then
+            hb:Disconnect()
+            hb = nil
+        end
+    end
+end
+
+-- Connect the toggle callback
+Main:AddToggle({
+    Name = "HP Check",
+    Default = false,
+    Callback = handleToggle
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -200,7 +434,7 @@ end
 heist:AddButton({
 	Name = "Bank",
 	Callback = function()
-	if workspace.Heists.Bank.Items.Chunk:FindFirstChild("Mint") then
+	if workspace.Heists.Bank.Items.Chunk:FindFirstChild("Deposit") then
   OrionLib:MakeNotification({
 	Name = "Bank",
 	Content = "Bank is open",
@@ -210,6 +444,48 @@ heist:AddButton({
 else
     OrionLib:MakeNotification({
 	Name = "Bank",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
+})
+
+heist:AddButton({
+	Name = "Ship",
+	Callback = function()
+	if workspace.Heists.Ship:FindFirstChild("Ship") or workspace.Heists.Ship:FindFirstChild("CollectMoney") then
+  OrionLib:MakeNotification({
+	Name = "Ship",
+	Content = "Ship is open",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Ship",
+	Content = "close",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+end
+	end
+})
+
+heist:AddButton({
+	Name = "Plane",
+	Callback = function()
+	if workspace.Heists.Plane:FindFirstChild("Plane") then
+  OrionLib:MakeNotification({
+	Name = "Plane",
+	Content = "Ship is open",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+else
+    OrionLib:MakeNotification({
+	Name = "Plane",
 	Content = "close",
 	Image = "rbxassetid://4483345998",
 	Time = 5
@@ -679,43 +955,77 @@ end
 RemoveLaser:AddButton({
 	Name = "Bank",
 	Callback = function()
-		for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Mint.Builds:GetChildren()) do 
-   if v.Name == "GreenLaser" then
-       for a,b in pairs(v:GetChildren()) do
-           b:Destroy()
-       end
-   end
-end
-		for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Mint.RoomB:GetChildren()) do 
-   if v.Name == "GreenLasers" then
-       for a,b in pairs(v:GetChildren()) do
-           b:Destroy()
-       end
-   end
-end
-		for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Mint.RoomB:GetChildren()) do 
+		for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.BottomSection.Function:GetChildren()) do 
    if v.Name == "Lasers" then
        for a,b in pairs(v:GetChildren()) do
            b:Destroy()
        end
    end
-end 
-
-		for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Mint.RoomB:GetChildren()) do 
-   if v.Name == "WallBeam" then
+end
+		for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.BottomSection.Function:GetChildren()) do 
+   if v.Name == "LaserRotate" then
        for a,b in pairs(v:GetChildren()) do
            b:Destroy()
        end
    end
-end 
-		for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Mint.RoomB.Model:GetChildren()) do 
-   if v.Name == "WallBeam" then
+end
+for i,v in pairs(Workspace.Heists.Bank.Items.Chunk.Deposit.BottomSection.Function:GetChildren()) do 
+   if v.Name == "BankLasers2" then
        for a,b in pairs(v:GetChildren()) do
            b:Destroy()
        end
    end
-end 
-  		OrionLib:MakeNotification({
+end
+for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.LiftHallway.Function:GetChildren()) do 
+   if v.Name == "Lasers" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.BottomSection.Function:GetChildren()) do 
+   if v.Name == "Root" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+for i,v in pairs(Workspace.Heists.Bank.Items.Chunk.Deposit:GetChildren()) do 
+   if v.Name == "CameraLasers" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.BottomSection.Fucntion.BankLasers2:GetChildren()) do 
+   if v.Name == "LaserMiddle" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.BottomSection.Fucntion.BankLasers2:GetChildren()) do 
+   if v.Name == "LaserFront" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.BottomSection.Fucntion.BankLasers2:GetChildren()) do 
+   if v.Name == "LaserBack" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+for i,v in pairs(game:GetService("Workspace").Heists.Bank.Items.Chunk.Deposit.BottomSection.Fucntion.BankLasers2:GetChildren()) do 
+   if v.Name == "Root" then
+       for a,b in pairs(v:GetChildren()) do
+           b:Destroy()
+       end
+   end
+end
+  	OrionLib:MakeNotification({
 	Name = "Remove L from your account",
 	Content = "Done! Remove Laser",
 	Image = "rbxassetid://4483345998",
