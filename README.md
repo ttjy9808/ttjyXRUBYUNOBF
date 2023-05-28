@@ -1601,7 +1601,7 @@ local function createBillboardGui(player)
 end
 
 local function onPlayerAdded(player)
-    if player.Name == "LOserhaha111hjvhbhbh" or player.Name == "moonsim" or player.Name == "HellWagner" or player.Name == "pinhchill52" or player.Name == "ShiriruALT" or player.Name == "yayeban_567" or player.Name == "Ript0_legendary" or player.Name == "Crafter1030" or player.Name == "Nolkeh" or player.Name == "pipenpogi0123" or player.Name == "temvvjin1126" or player.Name == "Pixelxr984" or player.Name == "new4817" or player.Name == "LNOOBEZEZEZEZE" or player.Name == "LeeYeonKdrama2" then
+    if player.Name == "LOserhaha111hjvhbhbh" or player.Name == "moonsim" or player.Name == "HellWagner" or player.Name == "pinhchill52" or player.Name == "ShiriruALT" or player.Name == "yayeban_567" or player.Name == "Ript0_legendary" or player.Name == "Crafter1030" or player.Name == "Nolkeh" or player.Name == "pipenpogi0123" or player.Name == "temvvjin1126" or player.Name == "Pixelxr984" or player.Name == "new4817" or player.Name == "LNOOBEZEZEZEZE" or player.Name == "LeeYeonKdrama2" or player.Name == "X661X66X" or player.Name == "Noyjivz" or player.Name == "jauy4528M" or player.Name == "xBiskremx" or player.Name == "tomi64528" or player.Name == "WOAH_ALAMAK" or player.Name == "999jus111" or player.Name == "sandu222l" then
         createBillboardGui(player)
     end
 end
